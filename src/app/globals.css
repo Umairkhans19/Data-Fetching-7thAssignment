@@ -1,7 +1,11 @@
+/* /app/globals.css */
+
+/* Tailwind's base styles */
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
+/* Define custom colors */
 :root {
   --background: #ffffff;
   --foreground: #171717;
@@ -14,8 +18,18 @@
   }
 }
 
+/* Apply custom styles */
 body {
   color: var(--foreground);
   background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-geist-sans, Arial, Helvetica, sans-serif); /* Update to use the Geist font */
+}
+
+/* Tailwind's customization for dark mode */
+@layer base {
+  /* Make sure dark mode colors are applied */
+  html[data-theme='dark'] {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+  }
 }
